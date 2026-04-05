@@ -2429,6 +2429,7 @@
             margin: 0px -15px 30px -15px;
             padding: 0px 15px;
             width: calc(100% + 30px);
+            overflow-y: hidden;
             overflow-x: auto;
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -3082,6 +3083,354 @@
         }
         &:last-child {
             border-bottom: none;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.block-contacts {
+    // .block-contacts__content
+
+    &__content {
+        display: flex;
+        align-items: start;
+        gap: 30px;
+        @media (max-width: 992px) {
+            flex-direction: column;
+        }
+        .filter-spollers__title {
+            height: 50px;
+            background: #fff;
+            font-weight: 400;
+            font-size: 16px;
+            border: 1px solid #9aacc9;
+            border-radius: 5px;
+            padding: 5px 20px;
+            &::after {
+                content: "";
+                width: 16px;
+                height: 10px;
+            }
+        }
+    }
+
+    // .block-contacts__body
+
+    &__body {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 100%;
+    }
+}
+.contacts-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 41px;
+    @media (max-width: 768px) {
+        gap: 30px;
+    }
+    // .contacts-tabs__top
+
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        @media (max-width: 768px) {
+            width: 100%;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+        }
+        span {
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 133%;
+            text-transform: uppercase;
+            @media (max-width: 768px) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    // .contacts-tabs__navigation
+
+    &__navigation {
+        display: flex;
+        gap: 20px;
+        flex: 1 1 auto;
+        @media (max-width: 768px) {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // .contacts-tabs__title
+
+    &__title {
+        flex: 0 1 260px;
+        border: 1px solid #000;
+        min-height: 50px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        transition:
+            background-color 0.3s,
+            color 0.3s,
+            opacity 0.3s;
+        @media (max-width: 768px) {
+            font-size: 14px;
+            min-height: 45px;
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+        &._tab-active {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+
+    // .contacts-tabs__content
+
+    &__content {
+    }
+
+    // .contacts-tabs__body
+
+    &__body {
+        min-width: 0;
+        width: 100%;
+    }
+
+    // .contacts-tabs__map
+
+    &__map {
+        width: 100%;
+        height: 400px;
+        @media (max-width: 480px) {
+            height: 300px;
+        }
+    }
+}
+.contacts-tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    // .contacts-tabs-list__title
+
+    &__title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 150%;
+        text-transform: uppercase;
+        color: #b2b8c3;
+    }
+
+    // .contacts-tabs-list__cards
+
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    // .contacts-tabs-list__card
+
+    &__card {
+        display: flex;
+        align-items: start;
+        gap: 30px;
+        border: 1px solid #d7d7d7;
+        padding: 20px 30px 20px 20px;
+        @media (max-width: 1300px) {
+            gap: 20px;
+            padding: 20px;
+        }
+        @media (max-width: 1200px) {
+            flex-direction: column;
+        }
+        @media (max-width: 992px) {
+            gap: 10px;
+        }
+        @media (max-width: 650px) {
+            padding: 15px;
+        }
+    }
+
+    // .contacts-tabs-list__left
+
+    &__left {
+        flex: 1 1 auto;
+        display: flex;
+        gap: 30px;
+        @media (max-width: 1300px) {
+            gap: 20px;
+            width: 100%;
+        }
+        @media (max-width: 650px) {
+            gap: 10px;
+            flex-direction: column;
+        }
+    }
+
+    // .contacts-tabs-list__image
+
+    &__image {
+        flex: 0 0 245px;
+        @media (max-width: 1300px) {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 650px) {
+            flex: 0 1 auto;
+            width: 100%;
+            height: 200px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // .contacts-tabs-list__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        @media (max-width: 768px) {
+            gap: 15px;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            @media (max-width: 768px) {
+                gap: 15px;
+            }
+            li {
+                display: flex;
+                align-items: start;
+                gap: 15px;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 150%;
+                @media (max-width: 768px) {
+                    font-size: 14px;
+                    gap: 10px;
+                }
+                img {
+                    flex: 0 0 24px;
+                    width: 24px;
+                    height: auto;
+                    @media (max-width: 768px) {
+                        width: 20px;
+                        flex: 0 0 20px;
+                        margin: 2px 0px 0px 0px;
+                    }
+                }
+                a {
+                    transition: color 0.3s;
+                    &:hover {
+                        color: #e21e2b;
+                    }
+                }
+            }
+        }
+    }
+
+    // .contacts-tabs-list__name
+
+    &__name {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 120%;
+        @media (max-width: 768px) {
+            font-size: 18px;
+        }
+    }
+
+    // .contacts-tabs-list__right
+
+    &__right {
+        flex: 0 0 285px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @media (max-width: 1300px) {
+            gap: 20px;
+            flex: 0 0 auto;
+        }
+        @media (max-width: 1200px) {
+            width: 100%;
+            flex: 1 1 auto;
+        }
+        @media (max-width: 992px) {
+            gap: 10px;
+        }
+    }
+
+    // .contacts-tabs-list__location
+
+    &__location {
+        min-height: 50px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
+        img {
+            flex: 0 0 32px;
+            width: 32px;
+            height: auto;
+            @media (max-width: 768px) {
+                width: 25px;
+                flex: 0 0 25px;
+            }
+        }
+        transition: color 0.3s;
+        &:hover {
+            color: #e21e2b;
+        }
+    }
+
+    // .contacts-tabs-list__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @media (max-width: 1200px) {
+            flex-direction: row;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 992px) {
+            gap: 10px;
+        }
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+        }
+        .btn {
+            min-height: 50px;
+            font-size: 16px;
+            text-align: center;
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
         }
     }
 }
