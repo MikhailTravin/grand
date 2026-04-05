@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Каталог</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="breadcrumbs">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Главная
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                каталог
+                            </a>
+                        </li>
+                        <li><span>Фронтальные погрузчики</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-catalog block1">
+                <div class="container">
+                    <h1 class="title1">Фронтальные погрузчики</h1>
+                    <div class="block-catalog__content">
+                        <div class="block-catalog-top">
+                            <div class="block-catalog-top__title">Популярные категории</div>
+                            <div class="block-catalog-top__body">
+                                <a href="./" class="block-catalog-top__column">
+                                    1 тонна
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    2 тонны
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    3 тонны
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    4 тонны
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    5 тонн
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    6 тонн
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    7 тонн
+                                </a>
+                                <a href="./" class="block-catalog-top__column">
+                                    10 тонн
+                                </a>
+                            </div>
+                        </div>
+                        <div class="block-catalog-bottom">
+                            <div class="block-catalog-bottom__title">Все товары <span>(56)</span></div>
+                            <div class="block-catalog-bottom__body">
+                                <div class="filter">
+                                    <div class="filter__button">
+                                        <img loading="lazy" src="img/icons/filter.svg" alt="">
+                                        <span>Фильтры</span>
+                                    </div>
+                                    <div class="filter__content">
+                                        <div class="filter__top">
+                                            <div class="filter__title">Фильтры</div>
+                                            <div class="filter__close">
+                                                <img loading="lazy" src="img/icons/close.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="filter__body">
+                                            <div data-spollers class="filter-spollers">
+                                                <div class="filter-spollers__item">
+                                                    <button type="button" data-spoller class="filter-spollers__title">
+                                                        По брендам
+                                                    </button>
+                                                    <div class="filter-spollers__body">
+                                                        <div class="filter-spollers__checkboxes">
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="1"
+                                                                    name="checkbox1">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Weheavy <span>(15)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="2"
+                                                                    name="checkbox1">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Scout <span>(8)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="3"
+                                                                    name="checkbox1">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Lovol <span>(11)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="4"
+                                                                    name="checkbox1">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Четра <span>(22)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="filter-spollers__item">
+                                                    <button type="button" data-spoller class="filter-spollers__title">
+                                                        Грузоподъемность, кг
+                                                    </button>
+                                                    <div class="filter-spollers__body">
+                                                        <div class="filter-spollers-rating">
+                                                            <div class="filter-spollers-rating__range"></div>
+                                                            <div class="filter-spollers-rating__inputs">
+                                                                <div class="filter-spollers-rating__input">
+                                                                    <span>От</span>
+                                                                    <input id="price-start" autocomplete="off"
+                                                                        type="text" name="form[2]" placeholder="200">
+                                                                </div>
+                                                                <div class="filter-spollers-rating__input">
+                                                                    <span>До</span>
+                                                                    <input id="price-end" autocomplete="off" type="text"
+                                                                        name="form[2]" placeholder="100 000 000">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filter-spollers__checkboxes">
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="1"
+                                                                    name="checkbox2">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Менее 3 000 <span>(15)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="2"
+                                                                    name="checkbox2">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        3 000 - 12 000 <span>(8)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="3"
+                                                                    name="checkbox2">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        12 000 - 20 000 <span>(11)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="4"
+                                                                    name="checkbox2">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        более 20 000 <span>(22)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="filter-spollers__item">
+                                                    <button type="button" data-spoller class="filter-spollers__title">
+                                                        Страна производитель
+                                                    </button>
+                                                    <div class="filter-spollers__body">
+                                                        <div class="filter-spollers__checkboxes">
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="1"
+                                                                    name="checkbox3">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Китай <span>(15)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="2"
+                                                                    name="checkbox3">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Россия <span>(8)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="3"
+                                                                    name="checkbox3">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Сша <span>(11)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="filter-spollers__item">
+                                                    <button type="button" data-spoller class="filter-spollers__title">
+                                                        Двигатель
+                                                    </button>
+                                                    <div class="filter-spollers__body">
+                                                        <div class="filter-spollers__checkboxes">
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="1"
+                                                                    name="checkbox4">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Китай <span>(15)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="2"
+                                                                    name="checkbox4">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Россия <span>(8)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="3"
+                                                                    name="checkbox4">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Сша <span>(11)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="filter-spollers__item">
+                                                    <button type="button" data-spoller class="filter-spollers__title">
+                                                        Гарантия
+                                                    </button>
+                                                    <div class="filter-spollers__body">
+                                                        <div class="filter-spollers__checkboxes">
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="1"
+                                                                    name="checkbox5">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        Без гарантии <span>(15)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="2"
+                                                                    name="checkbox5">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        12 месяцев <span>(8)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox">
+                                                                <input class="checkbox__input" type="checkbox" value="3"
+                                                                    name="checkbox5">
+                                                                <span class="checkbox__label">
+                                                                    <span class="checkbox__icon">
+                                                                        <img src="img/icons/check1.svg" alt="">
+                                                                    </span>
+                                                                    <span class="checkbox__text">
+                                                                        24 месяца <span>(11)</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="filter__floating-btn btn">
+                                                <span>Показать</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-catalog-bottom__right">
+                                    <div class="block-catalog-bottom__cards">
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image10.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Фронтальный погрузчик WL836H
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">125</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Грузоподъемность,т</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">3</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Объем ковша, м<span>3</span>
+                                                        </div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">2</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image8.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Телескопический погрузчик WF4014
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">98</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Грузоподъемность,т</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">4</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image12.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Гусеничный экскаватор WE225E2-N
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">125</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Объем ковша, м<span>3</span>
+                                                        </div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">2</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image10.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Фронтальный погрузчик WL836H
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">125</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Грузоподъемность,т</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">3</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Объем ковша, м<span>3</span>
+                                                        </div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">2</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image8.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Телескопический погрузчик WF4014
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">98</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Грузоподъемность,т</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">4</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image12.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Гусеничный экскаватор WE225E2-N
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">125</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Объем ковша, м<span>3</span>
+                                                        </div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">2</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image10.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Фронтальный погрузчик WL836H
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">125</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Грузоподъемность,т</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">3</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Объем ковша, м<span>3</span>
+                                                        </div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">2</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image8.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Телескопический погрузчик WF4014
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">98</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Грузоподъемность,т</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">4</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-product">
+                                            <div class="card-product__image">
+                                                <img loading="lazy" src="img/products/image12.webp" alt="">
+                                            </div>
+                                            <div class="card-product__item">
+                                                <div class="card-product__title">
+                                                    WEHEAVY Гусеничный экскаватор WE225E2-N
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="card-product__name">Мощность л.с.</div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">125</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="card-product__name">Объем ковша, м<span>3</span>
+                                                        </div>
+                                                        <div class="card-product__line"></div>
+                                                        <div class="card-product__value">2</div>
+                                                    </li>
+                                                </ul>
+                                                <div class="card-product__price">
+                                                    Цена: <span>По запросу</span>
+                                                </div>
+                                                <a href="./" class="btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% include 'blocks/pagging.njk' %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-reviews block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title2">Отзывы</h2>
+                        <a href="./" data-da=".block-reviews__content, 768, last" class="btn btn-border-black">Смотреть
+                            все отзывы</a>
+                    </div>
+                    <div class="block-reviews__content">
+                        <div class="block-reviews__body">
+                            <div class="block-reviews__column">
+                                <div class="block-reviews__top">
+                                    <div class="block-reviews__left">
+                                        <div class="block-reviews__tiltes">
+                                            <div class="block-reviews__avatar">
+                                                KО
+                                            </div>
+                                            <div class="block-reviews__title">
+                                                <div class="block-reviews__name">
+                                                    Кирилл Озеров
+                                                </div>
+                                                <div class="block-reviews__data">
+                                                    3 августа 2025 г.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-rating data-rating-size="5" data-rating-value="4.5" class="rating">
+                                        </div>
+                                    </div>
+                                    <div class="block-reviews__logo">
+                                        <img loading="lazy" src="img/icons/logo3.svg" alt="">
+                                    </div>
+                                </div>
+                                <p>
+                                    Менеджер сопровождал сделку от начала и до конца, не терялся и был на связи можно
+                                    сказать 24 на 7. Доставка экскаватора до объекта была выполнена в оговоренный срок.
+                                </p>
+                            </div>
+                            <div class="block-reviews__column">
+                                <div class="block-reviews__top">
+                                    <div class="block-reviews__left">
+                                        <div class="block-reviews__tiltes">
+                                            <div class="block-reviews__avatar">
+                                                KО
+                                            </div>
+                                            <div class="block-reviews__title">
+                                                <div class="block-reviews__name">
+                                                    Кирилл Озеров
+                                                </div>
+                                                <div class="block-reviews__data">
+                                                    3 августа 2025 г.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-rating data-rating-size="5" data-rating-value="5" class="rating">
+                                        </div>
+                                    </div>
+                                    <div class="block-reviews__logo">
+                                        <img loading="lazy" src="img/icons/logo3.svg" alt="">
+                                    </div>
+                                </div>
+                                <p>
+                                    Менеджер сопровождал сделку от начала и до конца, не терялся и был на связи можно
+                                    сказать 24 на 7. Доставка экскаватора до объекта была выполнена в оговоренный срок.
+                                </p>
+                            </div>
+                            <div class="block-reviews__column">
+                                <div class="block-reviews__top">
+                                    <div class="block-reviews__left">
+                                        <div class="block-reviews__tiltes">
+                                            <div class="block-reviews__avatar">
+                                                KО
+                                            </div>
+                                            <div class="block-reviews__title">
+                                                <div class="block-reviews__name">
+                                                    Кирилл Озеров
+                                                </div>
+                                                <div class="block-reviews__data">
+                                                    3 августа 2025 г.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-rating data-rating-size="5" data-rating-value="4.5" class="rating">
+                                        </div>
+                                    </div>
+                                    <div class="block-reviews__logo">
+                                        <img loading="lazy" src="img/icons/logo3.svg" alt="">
+                                    </div>
+                                </div>
+                                <p>
+                                    Менеджер сопровождал сделку от начала и до конца, не терялся и был на связи можно
+                                    сказать 24 на 7. Доставка экскаватора до объекта была выполнена в оговоренный срок.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-shipments block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title2">Отгрузки</h2>
+                        <a href="./" data-da=".block-shipments__content, 768, last" class="btn btn-border-black">
+                            Смотреть все отгрузки</a>
+                    </div>
+                    <div class="block-shipments__content">
+                        <div class="block-shipments__body">
+                            <div class="block-shipments__column">
+                                <div class="block-shipments__image">
+                                    <img src="img/news/image1.webp" alt="">
+                                </div>
+                                <div class="block-shipments__item">
+                                    <div class="block-shipments__title">
+                                        Складская техника
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="img/icons/location.svg" alt="">
+                                            <span>г Екатеринбург</span>
+                                        </li>
+                                        <li>
+                                            <img src="img/icons/calendar.svg" alt="">
+                                            <span>январь, 2026</span>
+                                        </li>
+                                    </ul>
+                                    <a href="./" class="btn">смотреть</a>
+                                </div>
+                            </div>
+                            <div class="block-shipments__column">
+                                <div class="block-shipments__image">
+                                    <img src="img/news/image4.webp" alt="">
+                                </div>
+                                <div class="block-shipments__item">
+                                    <div class="block-shipments__title">
+                                        Складская техника
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="img/icons/location.svg" alt="">
+                                            <span>г Екатеринбург</span>
+                                        </li>
+                                        <li>
+                                            <img src="img/icons/calendar.svg" alt="">
+                                            <span>январь, 2026</span>
+                                        </li>
+                                    </ul>
+                                    <a href="./" class="btn">смотреть</a>
+                                </div>
+                            </div>
+                            <div class="block-shipments__column">
+                                <div class="block-shipments__image">
+                                    <img src="img/news/image5.webp" alt="">
+                                </div>
+                                <div class="block-shipments__item">
+                                    <div class="block-shipments__title">
+                                        Складская техника
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="img/icons/location.svg" alt="">
+                                            <span>г Екатеринбург</span>
+                                        </li>
+                                        <li>
+                                            <img src="img/icons/calendar.svg" alt="">
+                                            <span>январь, 2026</span>
+                                        </li>
+                                    </ul>
+                                    <a href="./" class="btn">смотреть</a>
+                                </div>
+                            </div>
+                            <div class="block-shipments__column">
+                                <div class="block-shipments__image">
+                                    <img src="img/news/image1.webp" alt="">
+                                </div>
+                                <div class="block-shipments__item">
+                                    <div class="block-shipments__title">
+                                        Складская техника
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="img/icons/location.svg" alt="">
+                                            <span>г Екатеринбург</span>
+                                        </li>
+                                        <li>
+                                            <img src="img/icons/calendar.svg" alt="">
+                                            <span>январь, 2026</span>
+                                        </li>
+                                    </ul>
+                                    <a href="./" class="btn">смотреть</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-questions block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title2">Часто задаваемые вопросы</h2>
+                    </div>
+                    <div data-spollers class="questions-spollers">
+                        <div class="questions-spollers__item">
+                            <div data-spoller class="questions-spollers__title">
+                                <span>Какие виды погрузчиков вы предлагаете?</span>
+                                <div class="questions-spollers__icon">
+                                    <img loading="lazy" src="img/icons/arrow2.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="questions-spollers__body">
+                                <div class="questions-spollers__text">
+                                    <p>
+                                        При эксплуатации погрузчиков важно соблюдать меры безопасности: регулярно
+                                        проверять исправность техники, следить за правильной эксплуатацией и не
+                                        превышать допустимую нагрузку. Обучите персонал правильному использованию
+                                        погрузчиков и регулярно проводите техническое обслуживание, чтобы избежать
+                                        неисправностей и обеспечить безопасность на рабочем месте.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-spollers__item">
+                            <div data-spoller class="questions-spollers__title">
+                                <span>Как выбрать подходящий вилочный погрузчик для складских работ?</span>
+                                <div class="questions-spollers__icon">
+                                    <img loading="lazy" src="img/icons/arrow2.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="questions-spollers__body">
+                                <div class="questions-spollers__text">
+                                    <p>
+                                        При эксплуатации погрузчиков важно соблюдать меры безопасности: регулярно
+                                        проверять исправность техники, следить за правильной эксплуатацией и не
+                                        превышать допустимую нагрузку. Обучите персонал правильному использованию
+                                        погрузчиков и регулярно проводите техническое обслуживание, чтобы избежать
+                                        неисправностей и обеспечить безопасность на рабочем месте.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-spollers__item">
+                            <div data-spoller class="questions-spollers__title">
+                                <span>Какие меры безопасности нужно учитывать при эксплуатации погрузчиков?</span>
+                                <div class="questions-spollers__icon">
+                                    <img loading="lazy" src="img/icons/arrow2.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="questions-spollers__body">
+                                <div class="questions-spollers__text">
+                                    <p>
+                                        При эксплуатации погрузчиков важно соблюдать меры безопасности: регулярно
+                                        проверять исправность техники, следить за правильной эксплуатацией и не
+                                        превышать допустимую нагрузку. Обучите персонал правильному использованию
+                                        погрузчиков и регулярно проводите техническое обслуживание, чтобы избежать
+                                        неисправностей и обеспечить безопасность на рабочем месте.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-spollers__item">
+                            <div data-spoller class="questions-spollers__title">
+                                <span>Каковы условия обслуживания и ремонта погрузчиков?</span>
+                                <div class="questions-spollers__icon">
+                                    <img loading="lazy" src="img/icons/arrow2.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="questions-spollers__body">
+                                <div class="questions-spollers__text">
+                                    <p>
+                                        При эксплуатации погрузчиков важно соблюдать меры безопасности: регулярно
+                                        проверять исправность техники, следить за правильной эксплуатацией и не
+                                        превышать допустимую нагрузку. Обучите персонал правильному использованию
+                                        погрузчиков и регулярно проводите техническое обслуживание, чтобы избежать
+                                        неисправностей и обеспечить безопасность на рабочем месте.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-spollers__item">
+                            <div data-spoller class="questions-spollers__title">
+                                <span>Какие преимущества использования вилочных погрузчиков на производстве?</span>
+                                <div class="questions-spollers__icon">
+                                    <img loading="lazy" src="img/icons/arrow2.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="questions-spollers__body">
+                                <div class="questions-spollers__text">
+                                    <p>
+                                        При эксплуатации погрузчиков важно соблюдать меры безопасности: регулярно
+                                        проверять исправность техники, следить за правильной эксплуатацией и не
+                                        превышать допустимую нагрузку. Обучите персонал правильному использованию
+                                        погрузчиков и регулярно проводите техническое обслуживание, чтобы избежать
+                                        неисправностей и обеспечить безопасность на рабочем месте.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

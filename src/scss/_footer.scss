@@ -211,9 +211,9 @@
                     line-height: 125%;
                     text-transform: uppercase;
                     color: #fff;
-                    transition: opacity 0.3s;
+                    transition: color 0.3s;
                     &:hover {
-                        opacity: 0.7;
+                        color: #b2b8c3;
                     }
                     @media (max-width: 550px) {
                         font-size: 14px;
@@ -232,37 +232,13 @@
         text-decoration: underline;
         text-decoration-skip-ink: none;
         color: #8c939e;
-        transition: color 0.3s;
+        transition: text-decoration 0.3s;
         &:hover {
-            color: var(--black);
+            text-decoration: none;
         }
         @media (max-width: 768px) {
             font-size: 14px;
             text-align: center;
-        }
-    }
-}
-
-.socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 40px;
-    @media (max-width: 768px) {
-        gap: 10px 20px;
-    }
-    a {
-        height: 40px;
-        width: auto;
-        transition: opacity 0.3s;
-        &:hover {
-            opacity: 0.7;
-        }
-        img {
-            height: 100%;
-            width: auto;
-        }
-        @media (max-width: 768px) {
-            height: 35px;
         }
     }
 }
