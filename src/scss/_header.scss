@@ -186,7 +186,7 @@
         height: calc(100vh - 109px);
         background: #fff;
         transition: right 0.3s;
-        overflow: auto;
+        overflow-y: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
         &::-webkit-scrollbar {

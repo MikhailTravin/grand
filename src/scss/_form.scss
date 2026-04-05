@@ -105,7 +105,7 @@
         background: #fff;
         padding: 10px 0px 5px 0px;
         max-height: 200px;
-        overflow: auto;
+        overflow-y: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
         &::-webkit-scrollbar {
