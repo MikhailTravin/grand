@@ -690,6 +690,48 @@ if (document.querySelector('.block-partners__slider')) {
   });
 }
 
+if (document.querySelector('.images-product')) {
+  const thumbsSwiper = new Swiper('.images-product__thumb', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 'auto',
+    spaceBetween: 8,
+    speed: 400,
+    preloadImages: true,
+    direction: "horizontal",
+    navigation: {
+      prevEl: '.images-product__arrow-prev',
+      nextEl: '.images-product__arrow-next',
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 5,
+        direction: "horizontal",
+      },
+      1200: {
+        slidesPerView: 5,
+        direction: "vertical",
+      },
+    },
+  });
+
+  const mainThumbsSwiper = new Swiper('.images-product__slider', {
+    thumbs: {
+      swiper: thumbsSwiper
+    },
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 400,
+    preloadImages: true,
+    navigation: {
+      prevEl: '.images-product__arrow-prev',
+      nextEl: '.images-product__arrow-next',
+    },
+  });
+}
+
 //========================================================================================================================================================
 
 const iconMenu = document.querySelector('.header__burger');
@@ -891,475 +933,6 @@ window.addEventListener('resize', function () {
 });
 
 //========================================================================================================================================================
-/*
-
-
-const menuItems = document.querySelectorAll('.header-menu__item');
-
-if (menuItems) {
-  function handleArrowClick(event) {
-    if (window.innerWidth <= 1100) {
-      const menuItem = this.closest('.header-menu__item');
-      if (menuItem) {
-        event.stopPropagation();
-        menuItem.classList.toggle('active');
-      }
-    }
-  }
-
-  function handleBackClick(event) {
-    if (window.innerWidth <= 1100) {
-      const menuItem = this.closest('.header-menu__item');
-      if (menuItem) {
-        event.stopPropagation();
-        menuItem.classList.remove('active');
-      }
-    }
-  }
-
-  menuItems.forEach(item => {
-    const arrow = item.querySelector('.header-menu__arrow');
-    if (arrow) {
-      arrow.addEventListener('click', handleArrowClick);
-    }
-
-    const backButton = item.querySelector('.header-menu__back');
-    if (backButton) {
-      backButton.addEventListener('click', handleBackClick);
-    }
-  });
-
-  document.addEventListener('click', function (event) {
-    if (window.innerWidth <= 1100) {
-      const isClickInsideMenu = event.target.closest('.header-menu__item');
-      if (!isClickInsideMenu) {
-        menuItems.forEach(item => {
-          item.classList.remove('active');
-        });
-      }
-    }
-  });
-
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 1100) {
-      menuItems.forEach(item => {
-        item.classList.remove('active');
-      });
-    }
-  });
-}
-
-//========================================================================================================================================================
-
-
-
-//========================================================================================================================================================
-
-if (document.querySelector('.block-advertising__slider')) {
-  const slidesCount = document.querySelectorAll('.block-advertising__slider .swiper-slide').length;
-
-  const swiperAdvertising = new Swiper('.block-advertising__slider', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: slidesCount >= 2,
-    loopedSlides: slidesCount,
-    loopAdditionalSlides: slidesCount,
-    lazy: true,
-    speed: 1000,
-    autoplay: {
-      delay: 1000,
-    },
-    breakpoints: {
-      480: {
-        slidesPerView: Math.min(2, slidesCount),
-      },
-      992: {
-        slidesPerView: Math.min(3, slidesCount),
-      },
-    },
-  });
-}
-
-if (document.querySelector('.block-other__slider')) {
-  const swiperOther = new Swiper('.block-other__slider', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 4,
-    spaceBetween: 16,
-    speed: 400,
-    navigation: {
-      prevEl: '.block-other__arrow-prev',
-      nextEl: '.block-other__arrow-next',
-    },
-    breakpoints: {
-      480: {
-        slidesPerView: 4,
-        spaceBetween: 16,
-      },
-      1300: {
-        slidesPerView: 5,
-        spaceBetween: 24,
-      },
-    },
-  });
-}
-
-if (document.querySelector('.block-intro__slider')) {
-  const swiperIntro = new Swiper('.block-intro__slider', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    lazy: true,
-    speed: 800,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true
-    },
-    autoplay: {
-      delay: 3000,
-    },
-    pagination: {
-      el: '.block-intro__pagination',
-      clickable: true,
-    }
-  });
-}
-
-if (document.querySelector('.block-card__slider')) {
-  const swiperCard = new Swiper('.block-card__slider', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    lazy: true,
-    speed: 800,
-    autoplay: {
-      delay: 3000,
-    },
-    pagination: {
-      el: '.block-card__pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-      },
-    },
-  });
-}
-
-if (document.querySelector('.block-article__slider')) {
-  const swiperArticle = new Swiper('.block-article__slider', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 0,
-    speed: 400,
-    navigation: {
-      prevEl: '.block-article__arrow-prev',
-      nextEl: '.block-article__arrow-next',
-    },
-    pagination: {
-      el: '.block-article__pagination',
-      clickable: true,
-    },
-  });
-}
-
-const slidersCalendar = document.querySelectorAll('.block-calendar__slider');
-if (slidersCalendar.length) {
-  slidersCalendar.forEach((slider) => {
-    const paginationEl = slider.querySelector('.block-calendar__pagination');
-
-    const swiperCalendar = new Swiper(slider, {
-      observer: true,
-      observeParents: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      loop: true,
-      lazy: true,
-      speed: 800,
-      effect: "fade",
-      fadeEffect: {
-        crossFade: true
-      },
-      autoplay: {
-        delay: 3000,
-      },
-      pagination: {
-        el: paginationEl,
-        clickable: true,
-      }
-    });
-  });
-}
-
-const sliderCalendarNav = document.querySelector('.block-calendar-nav__slider');
-if (sliderCalendarNav) {
-  const wrapper = document.querySelector('.block-calendar-nav__wrapper');
-  const prevBtn = document.querySelector('.block-calendar-nav__arrow-prev');
-  const nextBtn = document.querySelector('.block-calendar-nav__arrow-next');
-  const content = document.querySelector('.block-calendar-nav__content');
-
-  let isDragging = false;
-  let startX = 0;
-  let startScrollLeft = 0;
-
-  function updateButtonsState() {
-    const scrollLeft = sliderCalendarNav.scrollLeft;
-    const maxScrollLeft = sliderCalendarNav.scrollWidth - sliderCalendarNav.clientWidth;
-
-    if (scrollLeft <= 1) {
-      sliderCalendarNav.classList.add('is-start');
-      if (content) content.classList.add('is-start');
-      if (prevBtn) prevBtn.classList.add('disabled');
-    } else {
-      sliderCalendarNav.classList.remove('is-start');
-      if (content) content.classList.remove('is-start');
-      if (prevBtn) prevBtn.classList.remove('disabled');
-    }
-
-    if (scrollLeft >= maxScrollLeft - 1) {
-      sliderCalendarNav.classList.add('is-end');
-      if (content) content.classList.add('is-end');
-      if (nextBtn) nextBtn.classList.add('disabled');
-    } else {
-      sliderCalendarNav.classList.remove('is-end');
-      if (content) content.classList.remove('is-end');
-      if (nextBtn) nextBtn.classList.remove('disabled');
-    }
-  }
-
-  function scrollTo(direction) {
-    const scrollAmount = sliderCalendarNav.clientWidth * 0.8;
-    let newScrollLeft;
-
-    if (direction === 'next') {
-      newScrollLeft = sliderCalendarNav.scrollLeft + scrollAmount;
-    } else {
-      newScrollLeft = sliderCalendarNav.scrollLeft - scrollAmount;
-    }
-
-    sliderCalendarNav.scrollTo({
-      left: newScrollLeft,
-      behavior: 'smooth'
-    });
-
-    setTimeout(updateButtonsState, 400);
-  }
-
-  sliderCalendarNav.addEventListener('scroll', updateButtonsState);
-  window.addEventListener('resize', updateButtonsState);
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (prevBtn.classList.contains('disabled')) return;
-      scrollTo('prev');
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (nextBtn.classList.contains('disabled')) return;
-      scrollTo('next');
-    });
-  }
-
-  sliderCalendarNav.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX - sliderCalendarNav.offsetLeft;
-    startScrollLeft = sliderCalendarNav.scrollLeft;
-    sliderCalendarNav.style.cursor = 'grabbing';
-    sliderCalendarNav.style.userSelect = 'none';
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - sliderCalendarNav.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    sliderCalendarNav.scrollLeft = startScrollLeft - walk;
-    updateButtonsState();
-  });
-
-  window.addEventListener('mouseup', () => {
-    isDragging = false;
-    sliderCalendarNav.style.cursor = 'grab';
-    sliderCalendarNav.style.userSelect = '';
-  });
-
-  sliderCalendarNav.addEventListener('dragstart', (e) => {
-    e.preventDefault();
-  });
-
-  sliderCalendarNav.style.cursor = 'grab';
-
-  let touchStartX = 0;
-  let touchStartScrollLeft = 0;
-
-  sliderCalendarNav.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].pageX;
-    touchStartScrollLeft = sliderCalendarNav.scrollLeft;
-  });
-
-  sliderCalendarNav.addEventListener('touchmove', (e) => {
-    const touchX = e.touches[0].pageX;
-    const walk = (touchX - touchStartX) * 1.5;
-    sliderCalendarNav.scrollLeft = touchStartScrollLeft - walk;
-    updateButtonsState();
-  });
-
-  updateButtonsState();
-};
-
-//========================================================================================================================================================
-
-let dataTabs = document.querySelectorAll('[data-tabs]');
-if (dataTabs) {
-  dataTabs.forEach(tabBlock => {
-    const tabButtons = tabBlock.querySelectorAll('[data-tab-title]');
-    const tabContents = tabBlock.querySelectorAll('[data-tab-body]');
-
-    if (!tabButtons.length || !tabContents.length) return;
-
-    const activateTab = (tabId) => {
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-
-      const activeButton = tabBlock.querySelector(`[data-tab-title][data-tab="${tabId}"]`);
-      const activeContent = tabBlock.querySelector(`[data-tab-body][data-tab="${tabId}"]`);
-
-      if (activeButton) activeButton.classList.add('active');
-      if (activeContent) activeContent.classList.add('active');
-    };
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const tabId = button.getAttribute('data-tab');
-        if (tabId) activateTab(tabId);
-      });
-    });
-
-    const activeTabButton = tabBlock.querySelector('[data-tab-title].active');
-    if (activeTabButton) {
-      const initialTabId = activeTabButton.getAttribute('data-tab');
-      if (initialTabId) activateTab(initialTabId);
-    } else if (tabButtons.length) {
-      const firstTabId = tabButtons[0].getAttribute('data-tab');
-      if (firstTabId) activateTab(firstTabId);
-    }
-
-    const prevArrow = tabBlock.querySelector('.arrow-prev');
-    const nextArrow = tabBlock.querySelector('.arrow-next');
-    const sliderWrapper = tabBlock.querySelector('.block-calendar-nav__wrapper');
-    const slides = tabBlock.querySelectorAll('.block-calendar-nav__slide');
-
-    if (prevArrow && nextArrow && sliderWrapper && slides.length) {
-      let currentSlide = 0;
-      let slideWidth = slides[0].offsetWidth;
-
-      const updateSliderPosition = (animate = true) => {
-        if (sliderWrapper) {
-          sliderWrapper.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-          sliderWrapper.style.transition = animate ? 'transform 0.3s ease' : 'none';
-        }
-      };
-
-      const updateArrowsVisibility = () => {
-        prevArrow.style.opacity = currentSlide === 0 ? '0.5' : '1';
-        prevArrow.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
-        nextArrow.style.opacity = currentSlide === slides.length - 1 ? '0.5' : '1';
-        nextArrow.style.pointerEvents = currentSlide === slides.length - 1 ? 'none' : 'auto';
-      };
-
-      prevArrow.addEventListener('click', () => {
-        if (currentSlide > 0) {
-          currentSlide--;
-          updateSliderPosition(true);
-          updateArrowsVisibility();
-        }
-      });
-
-      nextArrow.addEventListener('click', () => {
-        if (currentSlide < slides.length - 1) {
-          currentSlide++;
-          updateSliderPosition(true);
-          updateArrowsVisibility();
-        }
-      });
-
-      let isResizing = false;
-      window.addEventListener('resize', () => {
-        if (isResizing) return;
-        isResizing = true;
-        requestAnimationFrame(() => {
-          const newSlideWidth = slides[0].offsetWidth;
-          if (newSlideWidth !== slideWidth) {
-            slideWidth = newSlideWidth;
-            updateSliderPosition(false);
-            updateArrowsVisibility();
-          }
-          isResizing = false;
-        });
-      });
-
-      updateArrowsVisibility();
-    }
-  });
-}
-
-//========================================================================================================================================================
-
-Fancybox.bind("[data-fancybox]", {
-  // опции
-});
-
-//========================================================================================================================================================
-
-const toggle = document.getElementById('specialVisionToggle');
-if (toggle) {
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('special-vision');
-    localStorage.setItem('specialVision', document.body.classList.contains('special-vision'));
-  });
-
-  if (localStorage.getItem('specialVision') === 'true') {
-    document.body.classList.add('special-vision');
-  }
-}
-
-//========================================================================================================================================================
-
-//Яндекс карта
-const map = document.querySelector('#map1');
-if (map) {
-  ymaps.ready(init);
-
-  function init() {
-    var myMap = new ymaps.Map('map1', {
-      center: [55.765990, 37.684560],
-      zoom: 15,
-      controls: ['zoomControl'],
-      behaviors: ['drag']
-    }, {
-      searchControlProvider: 'yandex#search'
-    });
-
-    myMap.geoObjects
-      .add(new ymaps.Placemark([55.765990, 37.684560], {
-      }))
-
-  };
-}
-
-//========================================================================================================================================================
 
 //Форма
 function formFieldsInit(options = { viewPass: true, autoHeight: false }) {
@@ -1374,7 +947,6 @@ function formFieldsInit(options = { viewPass: true, autoHeight: false }) {
       targetElement.hasAttribute('data-validate') ? formValidate.removeError(targetElement) : null;
     }
   });
-
   document.body.addEventListener("focusout", function (e) {
     const targetElement = e.target;
     if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
@@ -1382,61 +954,26 @@ function formFieldsInit(options = { viewPass: true, autoHeight: false }) {
         targetElement.classList.remove('_form-focus');
         targetElement.parentElement.classList.remove('_form-focus');
       }
-
-      if (targetElement.value.trim()) {
-        targetElement.parentElement.classList.add('filled');
-      } else {
-        targetElement.parentElement.classList.remove('filled');
-      }
-
       targetElement.hasAttribute('data-validate') ? formValidate.validateInput(targetElement) : null;
-
-      const form = targetElement.closest('form');
-      if (form) {
-        const submitBtn = form.querySelector('.btn.disabled');
-        if (submitBtn) {
-          setTimeout(() => {
-            const requiredFields = form.querySelectorAll('[data-required]');
-            let allFilled = true;
-
-            requiredFields.forEach(field => {
-              if (field.type === 'checkbox') {
-                if (!field.checked) allFilled = false;
-              } else {
-                if (!field.value.trim()) allFilled = false;
-              }
-            });
-
-            if (allFilled) {
-              submitBtn.classList.remove('disabled');
-            } else {
-              submitBtn.classList.add('disabled');
-            }
-          }, 50);
-        }
-      }
     }
   });
-
   if (options.viewPass) {
     document.addEventListener("click", function (e) {
       const targetElement = e.target;
       if (targetElement.closest('.form__viewpass')) {
         const viewpassBlock = targetElement.closest('.form__viewpass');
-        const parentInputBlock = viewpassBlock.closest('.form__input');
-        const input = parentInputBlock ? parentInputBlock.querySelector('input') : null;
+        const input = viewpassBlock.closest('.form__input').querySelector('input');
 
         if (input) {
           const isActive = viewpassBlock.classList.contains('_viewpass-active');
           input.setAttribute("type", isActive ? "password" : "text");
           viewpassBlock.classList.toggle('_viewpass-active');
         } else {
-          console.error('Input не найден для переключения видимости пароля!');
+          console.error('Input не найден!');
         }
       }
     });
   }
-
   if (options.autoHeight) {
     const textareas = document.querySelectorAll('textarea[data-autoheight]');
     if (textareas.length) {
@@ -1445,9 +982,7 @@ function formFieldsInit(options = { viewPass: true, autoHeight: false }) {
           Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
         const maxHeight = textarea.hasAttribute('data-autoheight-max') ?
           Number(textarea.dataset.autoheightMax) : Infinity;
-
-        setHeight(textarea, Math.min(startHeight, maxHeight));
-
+        setHeight(textarea, Math.min(startHeight, maxHeight))
         textarea.addEventListener('input', () => {
           if (textarea.scrollHeight > startHeight) {
             textarea.style.height = `auto`;
@@ -1455,14 +990,12 @@ function formFieldsInit(options = { viewPass: true, autoHeight: false }) {
           }
         });
       });
-
       function setHeight(textarea, height) {
         textarea.style.height = `${height}px`;
       }
     }
   }
 }
-
 formFieldsInit({
   viewPass: true,
   autoHeight: false
@@ -1526,40 +1059,22 @@ let formValidate = {
   addError(formRequiredItem) {
     formRequiredItem.classList.add('_form-error');
     formRequiredItem.parentElement.classList.add('_form-error');
-
-    const formInput = formRequiredItem.closest('.form__input');
-    if (formInput) {
-      const existingError = formInput.querySelector('.form-error');
-      if (existingError) existingError.remove();
-    }
-
+    let inputError = formRequiredItem.parentElement.querySelector('.form__error');
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
     if (formRequiredItem.dataset.error) {
-      if (formInput) {
-        formInput.insertAdjacentHTML('beforeend', `<div class="form-error">${formRequiredItem.dataset.error}</div>`);
-      } else {
-        formRequiredItem.parentElement.insertAdjacentHTML('afterend', `<div class="form-error">${formRequiredItem.dataset.error}</div>`);
-      }
+      formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
     }
   },
   removeError(formRequiredItem) {
     formRequiredItem.classList.remove('_form-error');
     formRequiredItem.parentElement.classList.remove('_form-error');
-
-    const formInput = formRequiredItem.closest('.form__input');
-    if (formInput) {
-      const errorMsg = formInput.querySelector('.form-error');
-      if (errorMsg) errorMsg.remove();
+    if (formRequiredItem.parentElement.querySelector('.form__error')) {
+      formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
     }
-
-    const errorMsgParent = formRequiredItem.parentElement.parentElement?.querySelector('.form-error');
-    if (errorMsgParent) errorMsgParent.remove();
   },
   addSuccess(formRequiredItem) {
     formRequiredItem.classList.add('_form-success');
     formRequiredItem.parentElement.classList.add('_form-success');
-    if (formRequiredItem.value.trim()) {
-      formRequiredItem.parentElement.classList.add('filled');
-    }
   },
   removeSuccess(formRequiredItem) {
     formRequiredItem.classList.remove('_form-success');
@@ -1577,19 +1092,14 @@ let formValidate = {
         el.classList.remove('_form-success');
         el.parentElement.classList.remove('_form-success');
 
-        el.classList.remove('_form-error');
-        el.parentElement.classList.remove('_form-error');
-
         el.parentElement.classList.remove('filled');
 
-        this.removeError(el);
+        formValidate.removeError(el);
 
         if (el.classList.contains('telephone') && el.clearFilled) {
           el.clearFilled();
         }
       }
-
-      form.querySelectorAll('.form-error').forEach(error => error.remove());
 
       let checkboxes = form.querySelectorAll('.checkbox__input');
       if (checkboxes.length > 0) {
@@ -1601,7 +1111,7 @@ let formValidate = {
         }
       }
 
-      if (typeof modules_flsModules !== 'undefined' && modules_flsModules.select) {
+      if (modules_flsModules.select) {
         let selects = form.querySelectorAll('div.select');
         if (selects.length) {
           for (let index = 0; index < selects.length; index++) {
@@ -1642,21 +1152,16 @@ function formSubmit() {
         const formData = new FormData(form);
 
         form.classList.add('_sending');
-        try {
-          const response = await fetch(formAction, {
-            method: formMethod,
-            body: formData
-          });
-          if (response.ok) {
-            let responseResult = await response.json();
-            form.classList.remove('_sending');
-            formSent(form, responseResult);
-          } else {
-            alert("Помилка сервера");
-            form.classList.remove('_sending');
-          }
-        } catch (err) {
-          alert("Помилка з'єднання");
+        const response = await fetch(formAction, {
+          method: formMethod,
+          body: formData
+        });
+        if (response.ok) {
+          let responseResult = await response.json();
+          form.classList.remove('_sending');
+          formSent(form, responseResult);
+        } else {
+          alert("Помилка");
           form.classList.remove('_sending');
         }
       } else if (form.hasAttribute('data-dev')) {
@@ -1667,9 +1172,7 @@ function formSubmit() {
       e.preventDefault();
       if (form.querySelector('._form-error') && form.hasAttribute('data-goto-error')) {
         const formGoToErrorClass = form.dataset.gotoError ? form.dataset.gotoError : '._form-error';
-        if (typeof gotoBlock === 'function') {
-          gotoBlock(formGoToErrorClass, true, 1000);
-        }
+        gotoBlock(formGoToErrorClass, true, 1000);
       }
     }
   }
@@ -1689,7 +1192,7 @@ function formSubmit() {
     });
 
     setTimeout(() => {
-      if (typeof modules_flsModules !== 'undefined' && modules_flsModules.popup) {
+      if (modules_flsModules.popup) {
         const popup = form.dataset.popupMessage;
         popup ? modules_flsModules.popup.open(popup) : null;
       }
@@ -1698,318 +1201,380 @@ function formSubmit() {
     formValidate.formClean(form);
   }
 }
-
-function initFormValidationObserver() {
-  const forms = document.querySelectorAll('form');
-
-  forms.forEach(form => {
-    const submitBtn = form.querySelector('.btn.disabled');
-    if (!submitBtn) return;
-
-    function checkRequiredFields() {
-      const requiredFields = form.querySelectorAll('[data-required]');
-      let allFilled = true;
-
-      requiredFields.forEach(field => {
-        if (field.type === 'checkbox') {
-          if (!field.checked) {
-            allFilled = false;
-          }
-        }
-        else {
-          const value = field.value.trim();
-          const hasValue = value !== '';
-
-          if (field.dataset.required === 'email' && hasValue) {
-            const isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(value);
-            if (!isValidEmail) {
-              allFilled = false;
-            }
-          }
-          else if (field.dataset.validate === 'password-confirm') {
-            const passwordInput = document.getElementById('password');
-            if (passwordInput && field.value !== passwordInput.value) {
-              allFilled = false;
-            }
-          }
-          else if (!hasValue) {
-            allFilled = false;
-          }
-        }
-      });
-
-      if (allFilled) {
-        submitBtn.classList.remove('disabled');
-      } else {
-        submitBtn.classList.add('disabled');
-      }
-
-      return allFilled;
-    }
-
-    checkRequiredFields();
-
-    const requiredFields = form.querySelectorAll('[data-required]');
-    requiredFields.forEach(field => {
-      if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA' || field.tagName === 'SELECT') {
-        field.addEventListener('input', () => {
-          setTimeout(checkRequiredFields, 0);
-        });
-        field.addEventListener('change', () => {
-          setTimeout(checkRequiredFields, 0);
-        });
-      }
-
-      if (field.type === 'checkbox') {
-        field.addEventListener('change', () => {
-          setTimeout(checkRequiredFields, 0);
-        });
-      }
-    });
-
-    form.addEventListener('focusout', (e) => {
-      const target = e.target;
-      if (target.hasAttribute && target.hasAttribute('data-required')) {
-        setTimeout(checkRequiredFields, 100);
-      }
-    });
-  });
-}
-
-function initCodeInputs() {
-  const codeInputs = document.querySelectorAll('.popup-code__inputs input');
-  if (!codeInputs.length) return;
-
-  function setInputValue(input, value) {
-    const digits = value.replace(/\D/g, '');
-    input.value = digits.slice(0, 1);
-    return input.value;
-  }
-
-  function focusNextInput(currentInput) {
-    const inputs = Array.from(currentInput.parentElement.querySelectorAll('input'));
-    const currentIndex = inputs.indexOf(currentInput);
-    if (currentIndex < inputs.length - 1) {
-      inputs[currentIndex + 1].focus();
-      return true;
-    }
-    return false;
-  }
-
-  function focusPrevInput(currentInput) {
-    const inputs = Array.from(currentInput.parentElement.querySelectorAll('input'));
-    const currentIndex = inputs.indexOf(currentInput);
-    if (currentIndex > 0) {
-      inputs[currentIndex - 1].focus();
-      return true;
-    }
-    return false;
-  }
-
-  codeInputs.forEach((input, index) => {
-    input.addEventListener('input', (e) => {
-      const oldValue = input.value;
-      const newValue = setInputValue(input, input.value);
-
-      if (newValue && newValue !== oldValue) {
-        focusNextInput(input);
-      }
-    });
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Backspace') {
-        if (input.value === '') {
-          focusPrevInput(input);
-        } else {
-          input.value = '';
-          e.preventDefault();
-        }
-      }
-
-      if (e.key === 'Delete') {
-        input.value = '';
-        e.preventDefault();
-      }
-
-      if (e.key === 'ArrowLeft') {
-        focusPrevInput(input);
-      }
-
-      if (e.key === 'ArrowRight') {
-        focusNextInput(input);
-      }
-
-      if (e.key === 'Home') {
-        e.preventDefault();
-        codeInputs[0].focus();
-      }
-
-      if (e.key === 'End') {
-        e.preventDefault();
-        codeInputs[codeInputs.length - 1].focus();
-      }
-    });
-
-    input.addEventListener('paste', (e) => {
-      e.preventDefault();
-      const pastedText = (e.clipboardData || window.clipboardData).getData('text');
-      const digits = pastedText.replace(/\D/g, '').split('');
-
-      digits.forEach((digit, i) => {
-        const targetInput = codeInputs[index + i];
-        if (targetInput && digit) {
-          targetInput.value = digit;
-        }
-      });
-
-      const nextEmptyIndex = codeInputs.findIndex(inp => inp.value === '');
-      if (nextEmptyIndex !== -1) {
-        codeInputs[nextEmptyIndex].focus();
-      } else {
-        codeInputs[codeInputs.length - 1].focus();
-      }
-
-      const form = input.closest('form');
-      if (form) {
-        const submitBtn = form.querySelector('.btn.disabled');
-        if (submitBtn) {
-          setTimeout(() => {
-            const requiredFields = form.querySelectorAll('[data-required]');
-            let allFilled = true;
-
-            requiredFields.forEach(field => {
-              if (!field.value.trim()) allFilled = false;
-            });
-
-            if (allFilled) {
-              submitBtn.classList.remove('disabled');
-            } else {
-              submitBtn.classList.add('disabled');
-            }
-          }, 50);
-        }
-      }
-    });
-  });
-
-  codeInputs[0].focus();
-}
-
-function clearCodeInputs() {
-  const codeInputs = document.querySelectorAll('.popup-code__inputs input');
-  codeInputs.forEach(input => {
-    input.value = '';
-  });
-  if (codeInputs.length) {
-    codeInputs[0].focus();
-  }
-}
-
-initCodeInputs();
 formSubmit();
-initFormValidationObserver();
 
 //========================================================================================================================================================
 
-const formFile = document.querySelector('.form-file');
+const filterFloatingButton = document.querySelector('.filter__floating-btn');
 
-if (formFile) {
-  const fileInput = document.querySelector('.form-file input[type="file"]');
-  const fileNameElement = document.querySelector('.form-file__name');
-  const fileSubnameElement = document.querySelector('.form-file__subname');
-  const fileIcon = document.querySelector('.form-file__icon');
-  const closeButton = document.querySelector('.form-file__close');
+if (filterFloatingButton) {
+  document.body.appendChild(filterFloatingButton);
+  filterFloatingButton.style.position = 'fixed';
+  filterFloatingButton.style.display = 'none';
+  filterFloatingButton.style.zIndex = '9999';
 
-  fileInput.addEventListener('change', function (e) {
-    const file = e.target.files[0];
+  const checkboxInput = document.querySelectorAll('.checkbox__input');
 
-    if (file) {
-      const maxSize = 5 * 1024 * 1024;
+  checkboxInput.forEach((checkbox, index) => {
+    let timeoutId = null;
 
-      if (file.size > maxSize) {
-        alert('Файл слишком большой. Максимальный размер 5 МБ.');
-        resetFileInput();
-        return;
+    checkbox.addEventListener('change', function () {
+      if (document.documentElement.clientWidth > 992) {
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+
+        if (checkbox.checked) {
+          filterFloatingButton.style.display = 'flex';
+
+          setTimeout(() => {
+            let visualElement = null;
+
+            if (checkbox.id) {
+              visualElement = document.querySelector(`label[for="${checkbox.id}"]`);
+            }
+            if (!visualElement) {
+              visualElement = checkbox.closest('label');
+            }
+            if (!visualElement) {
+              visualElement = checkbox.closest('.checkbox');
+            }
+            if (!visualElement) {
+              visualElement = checkbox;
+            }
+
+            const visualRect = visualElement.getBoundingClientRect();
+            const buttonHeight = filterFloatingButton.offsetHeight;
+
+            let elementHeight = visualRect.height;
+            let elementTop = visualRect.top;
+
+            if (elementHeight === 0) {
+              const parentHeight = visualElement.parentElement?.getBoundingClientRect().height;
+              elementHeight = parentHeight || 40;
+              elementTop = visualRect.top || (checkbox.getBoundingClientRect().top);
+            }
+
+            const visualCenter = elementTop + (elementHeight / 2);
+            const top = visualCenter - (buttonHeight / 2);
+            const left = visualRect.right + 30;
+
+            filterFloatingButton.style.top = `${top}px`;
+            filterFloatingButton.style.left = `${left}px`;
+          }, 10);
+
+          timeoutId = setTimeout(() => {
+            filterFloatingButton.style.display = 'none';
+          }, 10000);
+        } else {
+          filterFloatingButton.style.display = 'none';
+        }
       }
-
-      const fileName = file.name;
-
-      let fileSize = formatFileSize(file.size);
-
-      fileNameElement.textContent = fileName;
-      fileSubnameElement.textContent = fileSize;
-
-      const newIconSrc = fileIcon.getAttribute('data-image');
-      if (newIconSrc) {
-        fileIcon.src = newIconSrc;
-      }
-
-      formFile.classList.add('active');
-    }
+    });
   });
+}
 
-  closeButton.addEventListener('click', function (e) {
-    e.stopPropagation();
-    resetFileInput();
-  });
+//========================================================================================================================================================
 
-  function resetFileInput() {
-    fileInput.value = '';
+const filterWrapper = document.querySelector('.filter');
+if (filterWrapper) {
 
-    fileNameElement.textContent = 'Прикрепить файл';
-    fileSubnameElement.textContent = 'Макс. 5Мб';
+  const filterButton = document.querySelector('.filter__button');
+  const filterContent = document.querySelector('.filter__content');
+  const filterClose = document.querySelector('.filter__close');
 
-    const originalIconSrc = fileIcon.getAttribute('data-original-src');
-    if (originalIconSrc) {
-      fileIcon.src = originalIconSrc;
-    } else {
-      const originalSrc = fileIcon.src;
-      fileIcon.setAttribute('data-original-src', originalSrc);
-      fileIcon.src = originalSrc;
-    }
-
-    formFile.classList.remove('active');
+  function openFilter() {
+    document.documentElement.classList.add('filter-open');
   }
 
-  function formatFileSize(bytes) {
-    if (bytes === 0) return '0 Байт';
-
-    const k = 1024;
-    const sizes = ['Байт', 'КБ', 'МБ', 'ГБ'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-    const size = bytes / Math.pow(k, i);
-    const formattedSize = size.toFixed(2).replace(/\.00$/, '');
-
-    if (i === 0) {
-      return `${Math.round(size)} ${sizes[i]}`;
-    }
-
-    return `${formattedSize} ${sizes[i]}`;
+  function closeFilter() {
+    document.documentElement.classList.remove('filter-open');
   }
 
-  const originalIconSrc = fileIcon.src;
-  fileIcon.setAttribute('data-original-src', originalIconSrc);
+  if (filterButton) {
+    filterButton.addEventListener('click', function (e) {
+      e.stopPropagation();
+      openFilter();
+    });
+  }
 
-  formFile.addEventListener('dragover', function (e) {
-    e.preventDefault();
-    formFile.classList.add('drag-over');
-  });
+  if (filterClose) {
+    filterClose.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeFilter();
+    });
+  }
 
-  formFile.addEventListener('dragleave', function (e) {
-    e.preventDefault();
-    formFile.classList.remove('drag-over');
-  });
-
-  formFile.addEventListener('drop', function (e) {
-    e.preventDefault();
-    formFile.classList.remove('drag-over');
-
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      fileInput.files = files;
-      const event = new Event('change', { bubbles: true });
-      fileInput.dispatchEvent(event);
+  document.addEventListener('click', function (e) {
+    if (document.documentElement.classList.contains('filter-open')) {
+      if (filterContent && !filterContent.contains(e.target) &&
+        filterButton && !filterButton.contains(e.target)) {
+        closeFilter();
+      }
     }
   });
-}*/
+
+  if (filterContent) {
+    filterContent.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+}
+
+//========================================================================================================================================================
+
+//Ползунок
+function rangeInit() {
+  const ratingFilter = document.querySelector('.filter-spollers-rating__range');
+  if (ratingFilter) {
+    noUiSlider.create(ratingFilter, {
+      start: [400, 100000000],
+      connect: true,
+      range: {
+        'min': [100],
+        'max': [200000000]
+      },
+      format: wNumb({
+        decimals: 0,
+        thousand: ' ',
+      })
+    });
+
+    const priceStart = document.getElementById('price-start');
+    const priceEnd = document.getElementById('price-end');
+
+    function parseInput(value) {
+      return value.replace(/\D/g, '');
+    }
+
+    priceStart.addEventListener('change', function () {
+      const value = parseInput(this.value);
+      ratingFilter.noUiSlider.set([value, null]);
+    });
+
+    priceEnd.addEventListener('change', function () {
+      const value = parseInput(this.value);
+      ratingFilter.noUiSlider.set([null, value]);
+    });
+
+    ratingFilter.noUiSlider.on('update', function (values, handle) {
+      if (handle) {
+        priceEnd.value = values[handle];
+      } else {
+        priceStart.value = values[handle];
+      }
+    });
+
+    const initialValues = ratingFilter.noUiSlider.get();
+    priceStart.value = initialValues[0];
+    priceEnd.value = initialValues[1];
+  }
+}
+rangeInit();
+
+//========================================================================================================================================================
+
+//Звездный рейтинг
+function formRating() {
+  const ratings = document.querySelectorAll('[data-rating]');
+  if (ratings) {
+    ratings.forEach(rating => {
+      const ratingValue = +rating.dataset.ratingValue;
+      const ratingSize = +rating.dataset.ratingSize ? +rating.dataset.ratingSize : 5;
+      formRatingInit(rating, ratingSize);
+      ratingValue ? formRatingSet(rating, ratingValue) : null;
+      document.addEventListener('click', formRatingAction);
+    });
+  }
+
+  function formRatingAction(e) {
+    const targetElement = e.target;
+    if (targetElement.closest('.rating__input')) {
+      const currentElement = targetElement.closest('.rating__input');
+      const ratingValue = +currentElement.value;
+      const rating = currentElement.closest('.rating');
+      const ratingSet = rating.dataset.rating === 'set';
+      ratingSet ? formRatingGet(rating, ratingValue) : null;
+    }
+  }
+
+  function formRatingInit(rating, ratingSize) {
+    let ratingItems = ``;
+    for (let index = 0; index < ratingSize; index++) {
+      index === 0 ? ratingItems += `<div class="rating__items">` : null;
+      ratingItems += `
+                <label class="rating__item">
+                    <input class="rating__input" type="radio" name="rating" value="${index + 1}">
+                </label>`;
+      index === ratingSize ? ratingItems += `</div">` : null;
+    }
+    rating.insertAdjacentHTML("beforeend", ratingItems);
+  }
+
+  function formRatingGet(rating, ratingValue) {
+    const resultRating = ratingValue;
+    formRatingSet(rating, resultRating);
+  }
+
+  function formRatingSet(rating, value) {
+    const ratingItems = rating.querySelectorAll('.rating__item');
+    const resultFullItems = parseInt(value);
+    const resultPartItem = value - resultFullItems;
+
+    rating.hasAttribute('data-rating-title') ? rating.title = value : null;
+
+    ratingItems.forEach((ratingItem, index) => {
+      ratingItem.classList.remove('rating__item--active');
+      ratingItem.querySelector('span') ? ratingItems[index].querySelector('span').remove() : null;
+
+      if (index <= (resultFullItems - 1)) {
+        ratingItem.classList.add('rating__item--active');
+      }
+      if (index === resultFullItems && resultPartItem) {
+        ratingItem.insertAdjacentHTML("beforeend", `<span style="width:${resultPartItem * 100}%"></span>`);
+      }
+    });
+  }
+
+  function formRatingSend() {
+  }
+}
+formRating();
+
+//========================================================================================================================================================
+
+Fancybox.bind("[data-fancybox]", {
+  // опции
+});
+
+//========================================================================================================================================================
+
+//Табы
+function tabs() {
+  const tabs = document.querySelectorAll('[data-tabs]');
+  let tabsActiveHash = [];
+
+  if (tabs.length > 0) {
+    const hash = getHash();
+    if (hash && hash.startsWith('tab-')) {
+      tabsActiveHash = hash.replace('tab-', '').split('-');
+    }
+    tabs.forEach((tabsBlock, index) => {
+      tabsBlock.classList.add('_tab-init');
+      tabsBlock.setAttribute('data-tabs-index', index);
+      tabsBlock.addEventListener("click", setTabsAction);
+      initTabs(tabsBlock);
+    });
+
+    let mdQueriesArray = dataMediaQueries(tabs, "tabs");
+    if (mdQueriesArray && mdQueriesArray.length) {
+      mdQueriesArray.forEach(mdQueriesItem => {
+        mdQueriesItem.matchMedia.addEventListener("change", function () {
+          setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+        });
+        setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+      });
+    }
+  }
+
+  function setTitlePosition(tabsMediaArray, matchMedia) {
+    tabsMediaArray.forEach(tabsMediaItem => {
+      tabsMediaItem = tabsMediaItem.item;
+      let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
+      let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
+      let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
+      let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
+      tabsTitleItems = Array.from(tabsTitleItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
+      tabsContentItems = Array.from(tabsContentItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
+      tabsContentItems.forEach((tabsContentItem, index) => {
+        if (matchMedia.matches) {
+          tabsContent.append(tabsTitleItems[index]);
+          tabsContent.append(tabsContentItem);
+          tabsMediaItem.classList.add('_tab-spoller');
+        } else {
+          tabsTitles.append(tabsTitleItems[index]);
+          tabsMediaItem.classList.remove('_tab-spoller');
+        }
+      });
+    });
+  }
+
+  function initTabs(tabsBlock) {
+    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
+    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
+    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+    const tabsActiveHashBlock = tabsActiveHash[0] == tabsBlockIndex;
+
+    if (tabsActiveHashBlock) {
+      const tabsActiveTitle = tabsBlock.querySelector('[data-tabs-titles]>._tab-active');
+      tabsActiveTitle ? tabsActiveTitle.classList.remove('_tab-active') : null;
+    }
+    if (tabsContent.length) {
+      tabsContent.forEach((tabsContentItem, index) => {
+        tabsTitles[index].setAttribute('data-tabs-title', '');
+        tabsContentItem.setAttribute('data-tabs-item', '');
+
+        if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
+          tabsTitles[index].classList.add('_tab-active');
+        }
+        tabsContentItem.hidden = !tabsTitles[index].classList.contains('_tab-active');
+      });
+    }
+    setTabsStatus(tabsBlock);
+  }
+
+  function setTabsStatus(tabsBlock) {
+    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
+    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
+    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+
+    function isTabsAnimate(tabsBlock) {
+      if (tabsBlock.hasAttribute('data-tabs-animate')) {
+        return tabsBlock.dataset.tabsAnimate > 0 ? Number(tabsBlock.dataset.tabsAnimate) : 500;
+      }
+      return false;
+    }
+    const tabsBlockAnimate = isTabsAnimate(tabsBlock);
+
+    if (tabsContent.length > 0) {
+      const isHash = tabsBlock.hasAttribute('data-tabs-hash');
+      tabsContent = Array.from(tabsContent).filter(item => item.closest('[data-tabs]') === tabsBlock);
+      tabsTitles = Array.from(tabsTitles).filter(item => item.closest('[data-tabs]') === tabsBlock);
+      tabsContent.forEach((tabsContentItem, index) => {
+        if (tabsTitles[index].classList.contains('_tab-active')) {
+          if (tabsBlockAnimate) {
+            _slideDown(tabsContentItem, tabsBlockAnimate);
+          } else {
+            tabsContentItem.hidden = false;
+          }
+          if (isHash && !tabsContentItem.closest('.popup')) {
+            setHash(`tab-${tabsBlockIndex}-${index}`);
+          }
+        } else {
+          if (tabsBlockAnimate) {
+            _slideUp(tabsContentItem, tabsBlockAnimate);
+          } else {
+            tabsContentItem.hidden = true;
+          }
+        }
+      });
+    }
+  }
+
+  function setTabsAction(e) {
+    const el = e.target;
+    if (el.closest('[data-tabs-title]')) {
+      const tabTitle = el.closest('[data-tabs-title]');
+      const tabsBlock = tabTitle.closest('[data-tabs]');
+      if (!tabTitle.classList.contains('_tab-active') && !tabsBlock.querySelector('._slide')) {
+        let tabActiveTitle = tabsBlock.querySelectorAll('[data-tabs-title]._tab-active');
+        tabActiveTitle = Array.from(tabActiveTitle).filter(item => item.closest('[data-tabs]') === tabsBlock);
+        if (tabActiveTitle.length) tabActiveTitle[0].classList.remove('_tab-active');
+        tabTitle.classList.add('_tab-active');
+        setTabsStatus(tabsBlock);
+      }
+      e.preventDefault();
+    }
+  }
+}
+tabs();
