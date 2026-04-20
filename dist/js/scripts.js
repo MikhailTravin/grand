@@ -664,7 +664,7 @@ if (document.querySelector('.block-news__slider')) {
 
 if (document.querySelector('.block-partners__slider')) {
 
-  const swiperNews = new Swiper('.block-partners__slider', {
+  const swiperPartners = new Swiper('.block-partners__slider', {
     observer: true,
     observeParents: true,
     slidesPerView: 'auto',
@@ -685,6 +685,31 @@ if (document.querySelector('.block-partners__slider')) {
       },
       1470: {
         spaceBetween: 40,
+      },
+    },
+  });
+}
+
+if (document.querySelector('.block-partners__slider2')) {
+
+  const swiperPartners2 = new Swiper('.block-partners__slider2', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    speed: 400,
+    navigation: {
+      prevEl: '.block-partners__arrow-prev',
+      nextEl: '.block-partners__arrow-next',
+    },
+    breakpoints: {
+      992: {
+        spaceBetween: 20,
+        slidesPerView: 'auto',
+      },
+      1470: {
+        spaceBetween: 40,
+        slidesPerView: 5,
       },
     },
   });
@@ -728,6 +753,30 @@ if (document.querySelector('.images-product')) {
     navigation: {
       prevEl: '.images-product__arrow-prev',
       nextEl: '.images-product__arrow-next',
+    },
+  });
+}
+
+if (document.querySelector('.block-descr__slider')) {
+
+  const swiperDescr = new Swiper('.block-descr__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    speed: 800,
+    navigation: {
+      prevEl: '.block-descr__arrow-prev',
+      nextEl: '.block-descr__arrow-next',
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+      },
+      1470: {
+        slidesPerView: 1,
+      },
     },
   });
 }
@@ -826,11 +875,15 @@ function spollers() {
           if (hideSpollerBody) {
             spollerTitle.removeAttribute("tabindex");
             if (!spollerTitle.classList.contains("_spoller-active")) {
-              spollerTitle.nextElementSibling.hidden = true;
+              if (spollerTitle.nextElementSibling) {
+                spollerTitle.nextElementSibling.hidden = true;
+              }
             }
           } else {
             spollerTitle.setAttribute("tabindex", "-1");
-            spollerTitle.nextElementSibling.hidden = false;
+            if (spollerTitle.nextElementSibling) {
+              spollerTitle.nextElementSibling.hidden = false;
+            }
           }
         }));
       }
@@ -1717,7 +1770,6 @@ document.querySelectorAll('.header-menu-catalog__item2').forEach(item => {
     setTimeout(syncDropdownHeight, 10);
   });
 });
-
 document.addEventListener('DOMContentLoaded', syncDropdownHeight);
 
 //========================================================================================================================================================
