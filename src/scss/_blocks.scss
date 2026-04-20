@@ -688,6 +688,30 @@
         }
     }
 
+    // .block-partners__slider2
+
+    &__slider2 {
+        width: calc(100% - 80px);
+        margin: 0px 40px;
+        @media (max-width: 1470px) {
+            margin: 0px -15px;
+            padding: 0px 15px;
+            width: calc(100% + 30px);
+        }
+        .block-partners__slide {
+            flex: none;
+            width: 100%;
+            @media (max-width: 1470px) {
+                width: 20px;
+                flex: 0 0 200px;
+            }
+            @media (max-width: 992px) {
+                width: 160px;
+                flex: 0 0 160px;
+            }
+        }
+    }
+
     // .block-partners__wrapper
 
     &__wrapper {
@@ -2795,12 +2819,75 @@
         }
     }
 
+    // .block-descr__columns
+
+    &__columns {
+        min-width: 0;
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 1470px) {
+            gap: 20px;
+            grid-template-columns: 1fr;
+        }
+    }
+
     // .block-descr__column
 
     &__column {
         display: flex;
         flex-direction: column;
         gap: 13px;
+    }
+
+    // .block-descr__gallery
+
+    &__gallery {
+        width: 100%;
+        min-width: 0;
+        position: relative;
+    }
+
+    // .block-descr__slider
+
+    &__slider {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        @media (max-width: 1470px) {
+            margin: 0px -15px;
+            padding: 0px 15px;
+            width: calc(100% + 30px);
+        }
+    }
+
+    // .block-descr__wrapper
+
+    &__wrapper {
+    }
+
+    // .block-descr__slide
+
+    &__slide {
+        display: flex;
+        height: auto;
+        @media (max-width: 1470px) {
+            width: 400px;
+            flex: 0 0 400px;
+        }
+        @media (max-width: 1200px) {
+            width: 300px;
+            flex: 0 0 300px;
+        }
+        @media (max-width: 400px) {
+            width: 250px;
+            flex: 0 0 250px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }
 
@@ -2864,6 +2951,42 @@
 //========================================================================================================================================================
 
 .block-article {
+    .gallery {
+        margin-top: 60px;
+        @media (max-width: 768px) {
+            margin-top: 40px;
+        }
+    }
+    .gallery__inner {
+        position: relative;
+    }
+    .gallery__slider {
+        overflow: hidden;
+        @media (max-width: 1470px) {
+            margin: 0px -15px;
+            padding: 0px 50px;
+        }
+    }
+    .gallery__slider-item {
+        width: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .js-gallery-slider-prev {
+        left: -50px !important;
+        @media (max-width: 1550px) {
+            left: -5px !important;
+        }
+    }
+    .js-gallery-slider-next {
+        right: -50px !important;
+        @media (max-width: 1550px) {
+            right: -5px !important;
+        }
+    }
     // .block-article__body
 
     &__body {
@@ -2926,6 +3049,23 @@
         }
         @media (max-width: 480px) {
             grid-template-columns: 1fr;
+        }
+    }
+
+    // .block-article__banner
+
+    &__banner {
+        height: 400px;
+        @media (max-width: 992px) {
+            height: 300px;
+        }
+        @media (max-width: 768px) {
+            height: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }
@@ -3083,6 +3223,26 @@
         }
         &:last-child {
             border-bottom: none;
+        }
+    }
+}
+.block-article2 {
+    .block-article__images {
+        display: flex;
+        @media (max-width: 1200px) {
+            flex-direction: column;
+        }
+        img {
+            width: 40%;
+            max-height: 100%;
+            height: auto;
+            @media (max-width: 1200px) {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+        .block-descr__column {
+            flex: 1 1 60%;
         }
     }
 }
