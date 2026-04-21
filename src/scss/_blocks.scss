@@ -715,6 +715,12 @@
     // .block-partners__wrapper
 
     &__wrapper {
+        &.swiper-center {
+            justify-content: center;
+            @media (max-width: 768px) {
+                justify-content: start;
+            }
+        }
     }
 
     // .block-partners__slide
