@@ -3233,6 +3233,18 @@ a {
             flex: 0 0 160px;
   }
 }
+.block-partners__wrapper.swiper-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media (max-width: 768px) {
+  .block-partners__wrapper.swiper-center {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
 .block-partners__slide {
   display: -webkit-box;
   display: -ms-flexbox;
